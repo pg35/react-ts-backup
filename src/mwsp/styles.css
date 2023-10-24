@@ -1,0 +1,12 @@
+.mwsp-item {
+  margin-bottom: 1em;
+}
+.mwsp-item > label{
+  cursor: pointer;
+}
+.mwsp-success {
+  color: darkgreen;
+}
+.mwsp-error {
+  color: darkred;
+}

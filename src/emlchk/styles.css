@@ -1,0 +1,75 @@
+.pxq-emlchk > * {
+  box-sizing: border-box;
+}
+.pxq-emlchk-success {
+  color: darkgreen;
+}
+.pxq-emlchk-error {
+  color: darkred;
+}
+.pxq-emlchk label {
+  cursor: pointer;
+}
+.pxq-emlchk input[type="text"] {
+  width: 100%;
+  max-width: 100%;
+}
+.pxq-emlchk-list {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.pxq-emlchk-list__head {
+  display: none;
+}
+.pxq-emlchk-item {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+.pxq-emlchk-item--all {
+  border-bottom: 2px solid #aaa;
+}
+.pxq-emlchk-item__name,
+.pxq-emlchk-item__isDisposable,
+.pxq-emlchk-item__disposableError {
+  margin-bottom: 5px;
+}
+.pxq-emlchk-item__name {
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+
+@media (min-width: 500px) {
+  .pxq-emlchk-xs {
+    display: none;
+  }
+
+  .pxq-emlchk-list {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .pxq-emlchk-list__head {
+    font-weight: bold;
+    background: #aaa;
+  }
+  .pxq-emlchk-item {
+    display: table-row;
+  }
+  .pxq-emlchk-item__name,
+  .pxq-emlchk-item__isDisposable,
+  .pxq-emlchk-item__disposableError {
+    display: table-cell;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+  }
+  .pxq-emlchk-item__name {
+    width: 210px;
+    text-align: left;
+    text-decoration: none;
+  }
+  .pxq-emlchk-item__isDisposable {
+    width: 50px;
+  }
+}

@@ -1,0 +1,75 @@
+ <div key={screen.id}>
+            <h1>{screen.label}</h1>
+            <p>{screen.desc}</p>
+            {Object.keys(state.rules).map((screenId) => (
+              <div>
+                <p>
+                  {state.rules[screenId].selected
+                    ? `Selected Rule Id is = ${state.rules[screenId].selected}`
+                    : "No rule is currently selected"}
+                </p>
+                {state.rules[screenId].selected ? (
+                  <div>
+                    <Rule
+                      rule={
+                        state.rules[screenId].items[
+                          state.rules[screenId].selected
+                        ]
+                      }
+                      screen={screen}
+                    />
+                    <button
+                      onClick={() =>
+                        dispatch(
+                          createListAction(RULE_LIST, SELECT_ITEM, {
+                            screenId: screen.id,
+                            item: {
+                              id: null
+                            }
+                          })
+                        )
+                      }
+                    >
+                      Go back
+                    </button>
+                  </div>
+                ) : (
+                  <RuleList
+                    key={screenId}
+                    rules={state.rules[screenId]}
+                    screen={screen}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+
+          ------------------------renderItem={({ item, dragHandleProps }) => (
+        <div>
+          <ConditionParts
+            condition={item}
+            screen={screen}
+            ruleId={ruleId}
+            sectionId={sectionId}
+            dragHandleProps={dragHandleProps}
+          />
+        </div>
+      )}
+      removeItemConfig={createItemConfig(
+        "X",
+        "onRemoveItem",
+        REMOVE_ITEM,
+        (itemId) => ({
+          id: itemId
+        })
+      )}
+      addItemConfig={createItemConfig(
+        "Add Condition",
+        "onAddItem",
+        ADD_ITEM,
+        (itemId) => ({
+          ...updateCondition({ ...screen.sections[sectionId].default }, meta),
+          id: itemId
+        })
+      )}
+    />

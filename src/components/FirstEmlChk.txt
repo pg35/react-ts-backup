@@ -1,0 +1,48 @@
+interface State {
+  cf7: boolean;
+  gf: boolean;
+  ff: boolean;
+  msg: string;
+}
+export function App() {
+  const [state, setState] = React.useState({} as State);
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const prop = "checkbox" === e.currentTarget.type ? "checked" : "value";
+    setState({ ...state, [e.target.name]: e.target[prop] });
+  }
+  return (
+    <div className="aaa-emlchk">
+      <h2>Settings</h2>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log(state);
+        }}
+      >
+        <div>
+          <label htmlFor="">hello worl</label>
+          <input type="text" name="msg" onChange={handleChange} />
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="cf7" onChange={handleChange} /> Enable
+            for contactform 7
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="gf" onChange={handleChange} /> Enable
+            for Gravity Forms
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="ff" onChange={handleChange} /> Enable
+            for Formidable Forms
+          </label>
+        </div>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  );
+}

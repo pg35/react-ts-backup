@@ -1,0 +1,11 @@
+@media screen and (max-width: 782px) {
+  #mwre-app input[type="text"] {
+    min-height: 30px !important;
+  }
+}
+#mwre-app input[type="text"],
+#mwre-app select {
+  width: 100%;
+  max-width: 100%;
+  height: 42px;
+}
